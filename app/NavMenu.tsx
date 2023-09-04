@@ -1,13 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-
-function NavListItem({ href, text }: { href: string; text: string }) {
-  return (
-    <li className="h-[70px] flex items-center p-1">
-      <Link href={href}>{text}</Link>
-    </li>
-  );
-}
+import AuthCheck from "@/components/AuthCheck";
+import NavListItem from "@/components/NavListItem";
+import { SignInButton, SignOutButton } from "@/components/Buttons";
 
 export default function NavMenu() {
   return (
@@ -16,9 +11,23 @@ export default function NavMenu() {
         <Image src="/logo.svg" alt="NextSpace Logo" width="216" height="30" />
       </Link>
       <ul className="flex mr-4">
-        <NavListItem href={"/about"} text={"About"} />
-        <NavListItem href={"/blog"} text={"Blog"} />
-        <NavListItem href={"/users"} text={"Users"} />
+        <NavListItem>
+          <Link href={"/about"}>About</Link>
+        </NavListItem>
+        <NavListItem>
+          <Link href={"/blog"}>Blog</Link>
+        </NavListItem>
+        <NavListItem>
+          <Link href={"/users"}>Users</Link>
+        </NavListItem>
+        <NavListItem>
+          <SignInButton />
+        </NavListItem>
+        <NavListItem>
+          <AuthCheck>
+            <SignOutButton />
+          </AuthCheck>
+        </NavListItem>
       </ul>
     </nav>
   );
