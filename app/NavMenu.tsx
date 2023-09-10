@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AuthCheck from "@/components/AuthCheck";
 import NavListItem from "@/components/NavListItem";
-import { SignInButton, SignOutButton } from "@/components/Buttons";
+import { SignInButton, SignOutButton } from "@/components/buttons";
 
 export default function NavMenu() {
   return (

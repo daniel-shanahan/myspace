@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function PageHeader({ title }: Props) {
-  return <h1 className="text-4xl font-semibold">{title}</h1>;
+  return <h1 className="text-4xl font-semibold text-center mb-6">{title}</h1>;
 }
