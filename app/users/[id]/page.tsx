@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import FollowButton from "@/components/FollowButton/FollowButton";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
 
@@ -25,7 +26,7 @@ export default async function UserProfile({ params }: Props) {
       id: params.id,
     },
   });
-  const { name, bio, image, age } = user ?? {};
+  const { name, bio, image } = user ?? {};
 
   return (
     <div className="w-10/12 mx-auto">
@@ -38,8 +39,7 @@ export default async function UserProfile({ params }: Props) {
       />
       <h3 className="text-xl font-semibold mb-1">Bio</h3>
       <p className="mb-5">{bio}</p>
-      <h3 className="text-xl font-semibold mb-1">Age</h3>
-      <p className="mb-5">{age}</p>
+      <FollowButton targetUserId={params.id} />
     </div>
   );
 }
